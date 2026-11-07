@@ -13,6 +13,9 @@
 3. `POST /automate/v1/asset/letscollaborate/texts` creates our welcome text. Then `PATCH` it with the copied JSON: new text, a position offset slightly from the test asset, and `link` pointing at the public blog. A link on the asset is the one simple interaction for visitors. The base asset schema has a `link` field, but it's untested.
 4. Check it with `GET`, then check it visually in the browser.
 
+## Browser check: blocked (7 Nov 2026)
+A guest visit from the agent's cloud browser couldn't render 3D. The machine has no GPU, Chrome uses software WebGL (SwiftShader), and the WebGL context was rejected (`fail_if_major_perf_caveat + software gl`). Frame fell back to 2D. Steps 1 and 4 need a browser on a computer with a real GPU, signed in as an admin.
+
 ## Undo
 This deletes only our asset:
 `DELETE /automate/v1/asset/letscollaborate/texts/{ourAssetId}`

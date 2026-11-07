@@ -12,3 +12,4 @@ The API key went into the agent through a secure input as an environment variabl
 | 2026-11-07 | Read-only `GET` of frame and scene for `letscollaborate` (saved privately, not published) | Found the names of the permission and setting fields, listed in `reference/roles-matrix.md`. The API has no endpoint for listing assets. |
 | 2026-11-07 | Re-read the create-asset spec | `POST` takes no body; the type schema has to come from an asset made in the UI. We postponed creating the welcome display rather than guess. |
 | 2026-11-07 | Read Frame docs: Frame Home, Users & Permissions, AI Agents, v0.59 notes | Built the role matrix |
+| 2026-11-07 | Joined as a guest from the agent's cloud browser; ran box diagnostics | 3D failed. No GPU and software WebGL; Chrome log: `fail_if_major_perf_caveat + software gl`; Frame fell back to 2D. Nothing created, nothing changed. |
