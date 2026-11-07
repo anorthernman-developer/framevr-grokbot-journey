@@ -7,6 +7,8 @@ A public log of what one person (Craig Stanley) and an AI agent (Grok Bot) can d
 - **Methods log:** [`METHODS.md`](METHODS.md), every tool and call we used
 - **Capabilities and limits:** [`reference/capabilities.md`](reference/capabilities.md)
 - **Frame OpenAPI spec (public, v0.66.3):** [`reference/frame-openapi-0.66.3.json`](reference/frame-openapi-0.66.3.json)
+- **Roles matrix:** [`reference/roles-matrix.md`](reference/roles-matrix.md)
+- **Welcome display plan and undo:** [`reference/welcome-display-plan.md`](reference/welcome-display-plan.md)
 - **Roadmap:** [`ROADMAP.md`](ROADMAP.md)
 - **Example:** [`examples/read-frame.sh`](examples/read-frame.sh), read-only; the key is never passed as a command-line argument
 

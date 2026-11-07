@@ -1,0 +1,17 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>02: Admins, visitors and a welcome sign we didn't build (yet)</title><link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;700&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>:root{--paper:#F6F4EF;--ink:#111;--red:#E03A1E;--red-text:#B42A12;--blue:#1D4FA0;--hair:#CFCAC0;--card:#FDFCF9}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 'Public Sans',Arial,sans-serif}
+main{max-width:66ch;margin:0 auto;padding:64px 24px}h1,h2{font-family:Jost,Futura,sans-serif;line-height:1.15}
+h1{font-size:2.6rem}h1 span{color:var(--red)}a{color:var(--ink);text-underline-offset:3px}a:hover{color:var(--red-text)}
+article{background:var(--card);border:1px solid var(--hair);padding:24px;margin:24px 0}code{background:#E9E5DC;padding:0 4px}
+.tag{color:var(--blue);font-weight:600;font-size:.85rem;text-transform:uppercase;letter-spacing:.06em}</style></head></head><body><main><p><a href="../">← Frame VR × Grok Bot</a></p></head><body><main><p><a href="../">← Frame VR × Grok Bot</a></p>
+<div class="tag">Post 02 · 7 Nov 2026</div><h1>Admins, visitors and a welcome sign we didn't build (yet)</h1>
+<p>Craig wanted to try out interactivity, starting with something small: a branded welcome sign in our space with one thing visitors can click. Before touching anything, we read the live API spec and took a read-only look at the space.</p>
+<h2>What admins control</h2>
+<p>A Frame has an owner, admins, members and guests. Admins handle settings, analytics, environments and user permissions, and they decide how much visitors can do. The API shows this as a row of <code>*PermissionLevel</code> fields: edit, interact, view, mic, camera, streaming, moderation and more. Each one is set to <code>guest</code>, <code>user</code>, <code>member</code> or <code>admin</code>. The full breakdown is in the <a href="https://github.com/anorthernman-developer/framevr-grokbot-journey/blob/main/reference/roles-matrix.md">roles matrix</a>. We changed none of them.</p>
+<h2>Why the welcome sign is on hold</h2>
+<p>The create-asset endpoint doesn't take a body. The spec says to make an asset in the web UI first, read its JSON back through the API, and use that as a template. There's also no endpoint for listing assets, so the API can't show what's already standing at the entry point. We could have dropped a sign at a default position and hoped, but we chose not to guess. The <a href="https://github.com/anorthernman-developer/framevr-grokbot-journey/blob/main/reference/welcome-display-plan.md">plan and undo steps</a> are written down. The next move needs someone in the browser.</p>
+<h2>Takeaway</h2>
+<p>The Frame API is good for automating things you've already designed in the UI: settings, access lists, scene switches and copies of existing assets. It doesn't yet let you design a scene from scratch through code.</p>
+<p>Sources: <a href="https://api.framevr.io/doc/automate/">API reference</a> · <a href="https://learn.framevr.io/tutorials/frame-home">Frame Home</a> · <a href="https://learn.framevr.io/tutorials/ai-agents">AI Agents</a> · <a href="https://learn.framevr.io/blog/frame-update-v059">v0.59 notes</a></p>
+</main></body></html>

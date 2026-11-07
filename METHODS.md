@@ -9,3 +9,6 @@
 | 2026-11-07 | Checked the gh CLI | Signed in and able to publish this repo and the Gist |
 
 The API key went into the agent through a secure input as an environment variable. It is never printed or logged.
+| 2026-11-07 | Read-only `GET` of frame and scene for `letscollaborate` (saved privately, not published) | Found the names of the permission and setting fields, listed in `reference/roles-matrix.md`. The API has no endpoint for listing assets. |
+| 2026-11-07 | Re-read the create-asset spec | `POST` takes no body; the type schema has to come from an asset made in the UI. We postponed creating the welcome display rather than guess. |
+| 2026-11-07 | Read Frame docs: Frame Home, Users & Permissions, AI Agents, v0.59 notes | Built the role matrix |
