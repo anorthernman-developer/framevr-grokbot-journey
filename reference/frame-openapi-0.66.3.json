@@ -1,0 +1,1803 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "External Automation Api",
+  "description": "Accepts calls from external scripts or cron jobs from clients wanting to edit their frame settings.",
+  "termsOfService": "https://learn.framevr.io/tos-privacy-policy",
+  "contact": {
+   "name": "Gabe Baker",
+   "email": "gabe@framevr.io"
+  },
+  "version": "0.66.3"
+ },
+ "security": [
+  {
+   "automateAuth": []
+  }
+ ],
+ "components": {
+  "schemas": {
+   "frame": {
+    "properties": {
+     "ezPanelEnabled": {
+      "type": "boolean"
+     },
+     "isBrandable": {
+      "type": "boolean"
+     },
+     "cameraPermissionLevel": {
+      "type": "string"
+     },
+     "backgroundAssets": {
+      "type": "boolean"
+     },
+     "allowRemix": {
+      "type": "boolean"
+     },
+     "slidesVersion": {
+      "type": "string"
+     },
+     "isSinglePlayerMode": {
+      "type": "boolean"
+     },
+     "editPermissionLevel": {
+      "type": "string"
+     },
+     "backgroundPhotosphere": {
+      "type": "boolean"
+     },
+     "viewPermissionLevel": {
+      "type": "string"
+     },
+     "photospherePermissionLevel": {
+      "type": "string"
+     },
+     "interactPermissionLevel": {
+      "type": "string"
+     },
+     "owner": {
+      "type": "string"
+     },
+     "micPermissionLevel": {
+      "type": "string"
+     },
+     "emojiPermissionLevel": {
+      "type": "string"
+     },
+     "activeSlideId": {
+      "type": "number"
+     },
+     "chatHistory": {
+      "type": "boolean"
+     },
+     "calendarInvitePermissionLevel": {
+      "type": "string"
+     },
+     "spaceID": {
+      "type": "string"
+     },
+     "proposeAudio": {
+      "type": "boolean"
+     },
+     "proposeVideo": {
+      "type": "boolean"
+     },
+     "zoneLockPermissionLevel": {
+      "type": "string"
+     },
+     "sceneResetAfterLastUser": {
+      "type": "boolean"
+     },
+     "currentPhotosphere": {
+      "type": "string"
+     },
+     "streamingPermissionLevel": {
+      "type": "string"
+     }
+    }
+   },
+   "permissions": {
+    "enum": [
+     "guest",
+     "user",
+     "member",
+     "admin"
+    ]
+   }
+  },
+  "responses": {},
+  "parameters": {
+   "frameRef": {
+    "name": "frameRef",
+    "in": "path",
+    "description": "Database ID of Frame object",
+    "required": true,
+    "deprecated": false,
+    "allowEmptyValue": false,
+    "schema": {
+     "type": "string"
+    },
+    "example": "{{frameRef}}"
+   },
+   "memberEmail": {
+    "name": "memberEmail",
+    "in": "path",
+    "description": "The user email of the Member level permissions, separated by a comma (or %2C) delimiter",
+    "required": true,
+    "schema": {
+     "type": "string"
+    }
+   },
+   "adminEmail": {
+    "name": "adminEmail",
+    "in": "path",
+    "description": "The user email of the Admin level permissions, separated by a comma (or %2C) delimiter",
+    "required": true,
+    "schema": {
+     "type": "string"
+    }
+   }
+  },
+  "examples": {
+   "defaultFrame": {
+    "value": {
+     "spaceID": "myframename",
+     "name": "myframename-deprecated",
+     "lastVisited": 0,
+     "lastModified": 0,
+     "createdAt": 0,
+     "description": "This frame was made by automateAPI",
+     "stripe_subscription_id": "someStripeID",
+     "stripe_subscription_item_id": "someStripeItem",
+     "delete_on_failed_checkout": true,
+     "activeSlideId": "none",
+     "allowRemix": true,
+     "avatarFullBodyLocked": false,
+     "backgroundAssets": false,
+     "backgroundPhotosphere": false,
+     "altDescription": "This is an alternate description for a frame made by a",
+     "chatHistory": true,
+     "currentPhotosphere": "none",
+     "customNavMesh": "none",
+     "customNavMeshPath": "none",
+     "nametagsEnabled": true,
+     "domains": [],
+     "isBrandable": false,
+     "isSinglePlayerMode": false,
+     "admins": [],
+     "members": [],
+     "orderedSlides": [],
+     "proposeAudio": false,
+     "proposeVideo": false,
+     "megaphonesAutoEnabled": false,
+     "slidesVersion": 0,
+     "frameTierId": 0,
+     "sky": {
+      "enabled": true
+     },
+     "flyModeAllowed": true,
+     "ezPanelEnabled": true,
+     "gamesEnabled": true,
+     "chatDisabled": false,
+     "privateChatDisabled": false,
+     "password": "password",
+     "voiceZonesDisabled": false,
+     "membersCanEnterLockedZones": false,
+     "restrictAllAssetsToZones": false,
+     "enableLODAllAssets": false,
+     "rpmDisabled": false,
+     "editOwnAssetsMode": true,
+     "autoSeatEnabled": true,
+     "disablePeerEnterSound": false,
+     "disableVoiceZoneSound": false,
+     "adminInvitable": true,
+     "memberInvitable": true,
+     "fullBodiesEnabled": true,
+     "supportModeEnabled": true,
+     "sceneResetAfterLastUser": true,
+     "disallowGuests": false,
+     "baseModel": "none",
+     "viewPermissionLevel": "allViewable",
+     "interactPermissionLevel": "allInteractable",
+     "editPermissionLevel": "guestEditable",
+     "calendarInvitePermissionLevel": "guest",
+     "cameraPermissionLevel": "guest",
+     "photospherePermissionLevel": "guest",
+     "emojiPermissionLevel": "guest",
+     "zoneLockPermissionLevel": "guest",
+     "streamingPermissionLevel": "guest",
+     "moderationPermissionLevel": "guest",
+     "panelPermissionLevel": "guest",
+     "micPermissionLevel": "guest",
+     "capabilityValues": "none",
+     "notifications": "none",
+     "questionCategories": "none",
+     "map": "none",
+     "postEffectSettings": "none"
+    }
+   },
+   "nameOnlyFrame": {
+    "value": {
+     "spaceID": "some link to something?"
+    }
+   },
+   "ownerOnlyFrame": {
+    "value": {
+     "owner": "default output link?"
+    }
+   },
+   "baseAsset": {
+    "name": "baseAsset",
+    "assetSlideIds": [],
+    "link": "none",
+    "triggers": [],
+    "zoomable": true,
+    "disabledSourceInstance": false,
+    "downloadable": true,
+    "type": "base",
+    "position": {
+     "x": 0,
+     "y": 0,
+     "z": 0
+    },
+    "scale": {
+     "x": 0,
+     "y": 0,
+     "z": 0
+    },
+    "rotation": {
+     "x": 0,
+     "y": 0,
+     "z": 0
+    },
+    "spinAxis": "x",
+    "spinSpeed": "0",
+    "spinning": false,
+    "trackable": false,
+    "zoneId": "none",
+    "ezPanelContainerId": "none",
+    "grabLocked": true,
+    "showSnippetTool": true,
+    "billboarded": true,
+    "proximityEffectActive": false,
+    "altDescription": "This is an alternate description",
+    "lastModified": 0,
+    "LOD": 0,
+    "ezPanelContainer": {},
+    "index": 0,
+    "tags": [],
+    "docId": "none",
+    "snapToNavMesh": false,
+    "assetType": "unknown",
+    "draggedPosition": {
+     "x": 0,
+     "y": 0,
+     "z": 0
+    },
+    "draggedRotation": {
+     "x": 0,
+     "y": 0,
+     "z": 0
+    },
+    "prestocked": false
+   }
+  },
+  "requestBodies": {},
+  "headers": {},
+  "securitySchemes": {
+   "automateAuth": {
+    "type": "http",
+    "description": "User's API Key for Automate API",
+    "scheme": "bearer",
+    "bearerFormat": "uuid4"
+   }
+  },
+  "links": {},
+  "callbacks": {}
+ },
+ "externalDocs": {
+  "description": "OAS JSON file",
+  "url": "/doc/automate/openapi.json"
+ },
+ "tags": [
+  {
+   "name": "Frame",
+   "description": "Environments within the Frame service"
+  },
+  {
+   "name": "Frame Members",
+   "description": "Members of frame environments"
+  },
+  {
+   "name": "Frame Admins",
+   "description": "Admins of frame environments"
+  },
+  {
+   "name": "Assets in Frame",
+   "description": "Assest within frame environments"
+  },
+  {
+   "name": "Frame Scene",
+   "description": "Active scene selection for frame environments"
+  }
+ ],
+ "servers": [
+  {
+   "url": "https://api.framevr.io",
+   "description": "Public Automate API"
+  }
+ ],
+ "paths": {
+  "/automate/v1/frame/{frameRef}": {
+   "get": {
+    "tags": [
+     "Frame"
+    ],
+    "summary": "Read Frame",
+    "description": "Read a frame environment's data.\nCheck the environments settings.\n",
+    "operationId": "readFrame",
+    "parameters": [
+     {
+      "$ref": "#/components/parameters/frameRef"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Read",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "properties": {
+          "message": {
+           "type": "string"
+          },
+          "data": {
+           "$ref": "#/components/schemas/frame"
+          }
+         }
+        },
+        "examples": {
+         "default": {
+          "summary": "Frame with ID",
+          "description": "Contains frame environment data as well as its unique ID for later use\n",
+          "value": {
+           "id": "some id",
+           "frame": {
+            "cameraPermissionLevel": "guest",
+            "streamingPermissionLevel": "guest",
+            "editPermissionLevel": "guest",
+            "viewPermissionLevel": "guest",
+            "photospherePermissionLevel": "guest",
+            "interactPermissionLevel": "guest",
+            "micPermissionLevel": "guest",
+            "emojiPermissionLevel": "guest",
+            "calendarInvitePermissionLevel": "guest",
+            "zoneLockPermissionLevel": "guest",
+            "currentPhotosphere": "none",
+            "slidesVersion": "v3",
+            "owner": "default output link",
+            "activeSlideId": 0,
+            "spaceID": "some link to something",
+            "backgroundAssets": false,
+            "allowRemix": false,
+            "isBrandable": false,
+            "isSinglePlayerMode": true,
+            "backgroundPhotosphere": false,
+            "chatHistory": false,
+            "ezPanelEnabled": false,
+            "proposeAudio": false,
+            "proposeVideo": false,
+            "sceneResetAfterLastUser": false
+           }
+          }
+         }
+        }
+       }
+      }
+     },
+     "401": {
+      "description": "Invalid Credentials"
+     }
+    },
+    "security": [
+     {
+      "automateAuth": []
+     }
+    ]
+   },
+   "patch": {
+    "tags": [
+     "Frame"
+    ],
+    "summary": "Update Frame",
+    "description": "Update a frame environment with new settings.\nCan be partial settings, no need to upload the whole object.\n",
+    "operationId": "updateFrame",
+    "parameters": [
+     {
+      "$ref": "#/components/parameters/frameRef"
+     }
+    ],
+    "requestBody": {
+     "description": "update request body",
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/frame"
+       },
+       "examples": {
+        "default": {
+         "$ref": "#/components/examples/defaultFrame"
+        },
+        "nameOnly": {
+         "$ref": "#/components/examples/nameOnlyFrame"
+        },
+        "ownerOnly": {
+         "$ref": "#/components/examples/ownerOnlyFrame"
+        }
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Update",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "properties": {
+          "message": {
+           "type": "string"
+          },
+          "data": {
+           "$ref": "#/components/schemas/frame"
+          }
+         }
+        },
+        "examples": {
+         "default": {
+          "summary": "Message with Data",
+          "description": "Contains newly set frame environment data.\n",
+          "value": {
+           "message": "some message",
+           "data": {
+            "cameraPermissionLevel": "guest",
+            "streamingPermissionLevel": "guest",
+            "editPermissionLevel": "guest",
+            "viewPermissionLevel": "guest",
+            "photospherePermissionLevel": "guest",
+            "interactPermissionLevel": "guest",
+            "micPermissionLevel": "guest",
+            "emojiPermissionLevel": "guest",
+            "calendarInvitePermissionLevel": "guest",
+            "zoneLockPermissionLevel": "guest",
+            "currentPhotosphere": "none",
+            "slidesVersion": "v3",
+            "owner": "default output link",
+            "activeSlideId": 0,
+            "spaceID": "some link to something",
+            "backgroundAssets": false,
+            "allowRemix": false,
+            "isBrandable": false,
+            "isSinglePlayerMode": true,
+            "backgroundPhotosphere": false,
+            "chatHistory": false,
+            "ezPanelEnabled": false,
+            "proposeAudio": false,
+            "proposeVideo": false,
+            "sceneResetAfterLastUser": false
+           }
+          }
+         }
+        }
+       }
+      }
+     },
+     "401": {
+      "description": "Invalid Credentials"
+     }
+    },
+    "security": [
+     {
+      "automateAuth": []
+     }
+    ]
+   },
+   "delete": {
+    "tags": [
+     "Frame"
+    ],
+    "summary": "Delete Frame",
+    "description": "Delete a frame environment from the service.\n",
+    "operationId": "deleteFrame",
+    "parameters": [
+     {
+      "$ref": "#/components/parameters/frameRef"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Delete",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "properties": {
+          "message": {
+           "type": "string"
+          }
+         }
+        },
+        "examples": {
+         "default": {
+          "summary": "Simple Message",
+          "description": "Contains potentially helpful message.\n",
+          "value": {
+           "message": "Frame deleted?"
+          }
+         }
+        }
+       }
+      }
+     },
+     "401": {
+      "description": "Invalid Credentials"
+     }
+    },
+    "security": [
+     {
+      "automateAuth": []
+     }
+    ]
+   }
+  },
+  "/automate/v1/member/{frameRef}/{memberEmail}": {
+   "post": {
+    "tags": [
+     "Frame Members"
+    ],
+    "summary": "Create Frame Members",
+    "description": "Create one or more users by email id with Member level permission in the target frame.\n",
+    "operationId": "addMemberToFrame,",
+    "parameters": [
+     {
+      "$ref": "#/components/parameters/frameRef"
+     },
+     {
+      "$ref": "#/components/parameters/memberEmail"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Success"
+     },
+     "400": {
+      "description": "Failure due to invalid data format."
+     },
+     "403": {
+      "description": "Failure due to insufficient permission found in the API key."
+     },
+     "500": {
+      "description": "Failure due to unexpected reasons."
+     }
+    },
+    "security": [
+     {
+      "automateAuth": []
+     }
+    ]
+   },
+   "delete": {
+    "tags": [
+     "Frame Members"
+    ],
+    "summary": "Delete Frame Members",
+    "description": "Remove one or more users by email id with Member level permission from the target frame.\n",
+    "operationId": "deleteMemberFromFrame",
+    "parameters": [
+     {
+      "$ref": "#/components/parameters/frameRef"
+     },
+     {
+      "$ref": "#/components/parameters/memberEmail"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Success"
+     }
+    },
+    "security": [
+     {
+      "automateAuth": []
+     }
+    ]
+   }
+  },
+  "/automate/v1/member/{frameRef}": {
+   "get": {
+    "tags": [
+     "Frame Members"
+    ],
+    "summary": "Read Frame Members",
+    "description": "Read users in the target frame assigned Member level permissions.\n",
+    "operationId": "readMembersOfFrame",
+    "parameters": [
+     {
+      "$ref": "#/components/parameters/frameRef"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Returns an array of all members of the target frame"
+     }
+    },
+    "security": [
+     {
+      "automateAuth": []
+     }
+    ]
+   }
+  },
+  "/automate/v1/admin/{frameRef}/{adminEmail}": {
+   "post": {
+    "tags": [
+     "Frame Admins"
+    ],
+    "summary": "Create Frame Admins",
+    "description": "Create one or more users by email id with Admin level permission in the target frame.\n",
+    "operationId": "addAdminToFrame",
+    "parameters": [
+     {
+      "$ref": "#/components/parameters/frameRef"
+     },
+     {
+      "$ref": "#/components/parameters/adminEmail"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Success"
+     },
+     "400": {
+      "description": "Failure due to invalid data format."
+     },
+     "403": {
+      "description": "Failure due to insufficient permission found in the API key."
+     },
+     "500": {
+      "description": "Failure due to unexpected reasons."
+     }
+    },
+    "security": [
+     {
+      "automateAuth": []
+     }
+    ]
+   },
+   "delete": {
+    "tags": [
+     "Frame Admins"
+    ],
+    "summary": "Delete Frame Admins",
+    "description": "Remove one or more Admins by email id with Member level permission from the target frame.\n",
+    "operationId": "deleteAdminFromFrame",
+    "parameters": [
+     {
+      "$ref": "#/components/parameters/frameRef"
+     },
+     {
+      "$ref": "#/components/parameters/adminEmail"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Success"
+     }
+    },
+    "security": [
+     {
+      "automateAuth": []
+     }
+    ]
+   }
+  },
+  "/automate/v1/admin/{frameRef}": {
+   "get": {
+    "tags": [
+     "Frame Admins"
+    ],
+    "summary": "Read Frame Admins",
+    "description": "Read users in the target frame assigned Admin level permissions.",
+    "operationId": "readAdminsOfFrame",
+    "parameters": [
+     {
+      "$ref": "#/components/parameters/frameRef"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Returns an array of all admins of the target frame"
+     }
+    },
+    "security": [
+     {
+      "automateAuth": []
+     }
+    ]
+   }
+  },
+  "/automate/v1/asset/{frameRef}/{assetType}": {
+   "post": {
+    "tags": [
+     "Assets in Frame"
+    ],
+    "summary": "Create Asset",
+    "description": "Insert a 3D asset in the target frame environment.\n\n\nDue to current limitations, this is the suggested usage:\n  * use this method to create the asset\n  * Create an asset of the same type with the web interface\n  * Use the asset GET method to get the JSON data.\n  * Modify it as needed.\n  * Use the update/PATCH method to set the data on this asset.\n",
+    "operationId": "createAssetInFrame",
+    "parameters": [
+     {
+      "$ref": "#/components/parameters/frameRef"
+     },
+     {
+      "in": "path",
+      "name": "assetType",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "enum": [
+        "images",
+        "models",
+        "shapes",
+        "audios",
+        "pdfs",
+        "spheres",
+        "videos",
+        "spawn-spots",
+        "texts",
+        "particles",
+        "voice-zones",
+        "streaming-screens",
+        "polls",
+        "news",
+        "shaders",
+        "text-areas",
+        "NPCs",
+        "agents",
+        "whiteboards",
+        "basemodel-chairs",
+        "remotebrowsers"
+       ]
+      },
+      "description": "The type of the asset you want to create.",
+      "example": "images"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Creation",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "properties": {
+          "message": {
+           "type": "string"
+          },
+          "data": {
+           "$ref": "#/components/schemas/frame"
+          }
+         }
+        },
+        "examples": {
+         "default": {
+          "summary": "Message with Data",
+          "description": "Contains newly created asset data\n",
+          "value": {
+           "message": "some message",
+           "data": "some asset?"
+          }
+         }
+        }
+       }
+      },
+      "links": {
+       "ReadAsset": {
+        "operationId": "readAsset",
+        "parameters": {
+         "assetId": "$response.body#/data/id"
+        }
+       },
+       "UpdateAsset": {
+        "operationId": "updateAsset",
+        "parameters": {
+         "assetId": "$response.body#/data/id"
+        }
+       },
+       "DeleteAsset": {
+        "operationId": "deleteAsset",
+        "parameters": {
+         "assetId": "$response.body#/data/id"
+        }
+       }
+      }
+     },
+     "401": {
+      "description": "Invalid Credentials"
+     }
+    },
+    "security": [
+     {
+      "automateAuth": []
+     }
+    ]
+   }
+  },
+  "/automate/v1/asset/{frameRef}/{assetType}/{assetId}": {
+   "get": {
+    "tags": [
+     "Assets in Frame"
+    ],
+    "summary": "Read an asset in a frame",
+    "description": "Get properties of the target asset.\n",
+    "operationId": "readAssetInFrame",
+    "parameters": [
+     {
+      "$ref": "#/components/parameters/frameRef"
+     },
+     {
+      "in": "path",
+      "name": "assetType",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "enum": [
+        "images",
+        "models",
+        "shapes",
+        "audios",
+        "pdfs",
+        "images",
+        "spheres",
+        "videos",
+        "spawn-spots",
+        "texts",
+        "particles",
+        "voice-zones",
+        "streaming-screens",
+        "polls",
+        "news",
+        "shaders",
+        "text-areas",
+        "NPCs",
+        "agents",
+        "whiteboards",
+        "basemodel-chairs",
+        "remotebrowsers"
+       ]
+      },
+      "description": "The type of the asset you want to create.",
+      "example": "images"
+     },
+     {
+      "in": "path",
+      "name": "assetId",
+      "required": true,
+      "schema": {
+       "type": "string"
+      },
+      "description": "The ID of the asset to read from."
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Read",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "properties": {
+          "message": {
+           "type": "string"
+          },
+          "data": {
+           "$ref": "#/components/schemas/frame"
+          }
+         }
+        },
+        "examples": {
+         "default": {
+          "summary": "Message with Data",
+          "description": "Contains newly created asset data\n",
+          "value": {
+           "message": "some message",
+           "data": "some asset?"
+          }
+         }
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "automateAuth": []
+     }
+    ]
+   },
+   "patch": {
+    "tags": [
+     "Assets in Frame"
+    ],
+    "summary": "Update datastructure of an asset in a frame environment.",
+    "description": "Update properties of the target asset in the frame.\n",
+    "operationId": "updateAssetInFrame",
+    "parameters": [
+     {
+      "$ref": "#/components/parameters/frameRef"
+     },
+     {
+      "in": "path",
+      "name": "assetType",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "enum": [
+        "images",
+        "models",
+        "shapes",
+        "audios",
+        "pdfs",
+        "spheres",
+        "videos",
+        "spawn-spots",
+        "texts",
+        "particles",
+        "voice-zones",
+        "streaming-screens",
+        "polls",
+        "news",
+        "shaders",
+        "text-areas",
+        "NPCs",
+        "agents",
+        "whiteboards",
+        "basemodel-chairs",
+        "remotebrowsers"
+       ]
+      },
+      "description": "The type of the asset you want to create.",
+      "example": "images"
+     },
+     {
+      "in": "path",
+      "name": "assetId",
+      "required": true,
+      "schema": {
+       "type": "string"
+      },
+      "description": "The ID of the asset you want to edit."
+     }
+    ],
+    "requestBody": {
+     "description": "Data to update an asset in a frame with",
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object"
+       },
+       "examples": {
+        "NPCs": {
+         "summary": "They do whatever you want",
+         "desctiption": "Well, they talk about whatever you want.",
+         "value": {
+          "unknown": "not known..."
+         }
+        },
+        "agents": {
+         "summary": "AI Actor process",
+         "desctiption": "Attempts to carry out whatever natural language task was asked of it",
+         "value": {
+          "unknown": "not known..."
+         }
+        },
+        "texts": {
+         "summary": "Text",
+         "description": "Writes data to an asset, giving it text.",
+         "value": {
+          "align": "center",
+          "backgroundColor": null,
+          "ezPanelContainerId": null,
+          "fontSize": "22px",
+          "fromInventory": false,
+          "grabLocked": false,
+          "lastModified": 0,
+          "name": "Text Label",
+          "position": {
+           "x": 0,
+           "y": 0,
+           "z": 0
+          },
+          "rotation": {
+           "x": 0,
+           "y": 0,
+           "z": 0
+          },
+          "scale": {
+           "x": 1,
+           "y": 1,
+           "z": 2
+          },
+          "textColor": null,
+          "transparent": false,
+          "value": "Text Label"
+         }
+        },
+        "text-areas": {
+         "summary": "TextArea",
+         "description": "Writes data to an asset, giving it textarea.",
+         "value": {
+          "align": "center",
+          "apiInterval": "Every minute",
+          "apiRoute": null,
+          "backgroundColor": null,
+          "color": null,
+          "ezPanelContainerId": null,
+          "fontFamily": "Poppins",
+          "fontSize": 60,
+          "fromInventory": false,
+          "headImageId": null,
+          "headImageUrl": null,
+          "lastModified": 0,
+          "name": "Text Area",
+          "position": {
+           "x": 0,
+           "y": 0,
+           "z": 0
+          },
+          "rotation": {
+           "x": 0,
+           "y": 0,
+           "z": 0
+          },
+          "scale": {
+           "x": 1,
+           "y": 1,
+           "z": 1
+          },
+          "text": "Click this asset in Edit Mode to add your own text or link an API route.",
+          "textAlignment": 0,
+          "transparent": false,
+          "useAPI": false
+         }
+        },
+        "models": {
+         "summary": "3D Model",
+         "description": "Writes data to an asset, giving it a 3d model",
+         "value": {
+          "LOD": {
+           "active": false,
+           "nullDistance": 20,
+           "strategy": "SIMPLE_NULL"
+          },
+          "animationData": null,
+          "animations": [],
+          "downloadable": false,
+          "ezPanelContainerId": null,
+          "fromInventory": "ZzqiNtOS",
+          "grabLocked": false,
+          "isDoodle": false,
+          "isRigged": false,
+          "lastModified": 0,
+          "modelId": null,
+          "modelLoaded": true,
+          "modelURL": "https://firebasestorage.googleapis.com/v0/b/frame-vr-dev.appspot.com/o/ZzqiNtOS%2Fmodel-ZzqiNtOS.glb?alt=media&token=6362ac14-2bfb-48a1-ab44-bb1e529d1fe4",
+          "name": "Model",
+          "nodeMaterialsData": {
+           "data": {
+            "occlusionAlgoType": 2,
+            "occlusionCulled": true,
+            "occlusionType": 2,
+            "originalSize": false
+           }
+          },
+          "prestocked": false,
+          "position": {
+           "x": 0,
+           "y": 0,
+           "z": 0
+          },
+          "rotation": {
+           "x": 0,
+           "y": 0,
+           "z": 0
+          },
+          "scale": {
+           "x": 1,
+           "y": 1,
+           "z": 1
+          },
+          "sharedAtlas": null,
+          "sketchfab": false,
+          "snapToNavMesh": false,
+          "tags": null
+         }
+        },
+        "images": {
+         "summary": "2D Image",
+         "description": "Writes data to an asset, giving it a 2d model",
+         "value": {
+          "LOD": {
+           "map": null,
+           "active": false,
+           "nullDistance": 20,
+           "strategy": "SIMPLE_NULL"
+          },
+          "downloadable": false,
+          "ezPanelContainerId": null,
+          "fromInventory": false,
+          "grabLocked": false,
+          "height": 0.58719646799117,
+          "imageURL": "https://bugs.framevr.io/assets/logo-144x144.png",
+          "isReplacement": false,
+          "lastModified": 0,
+          "link": {
+           "linkType": "none"
+          },
+          "name": "background-light",
+          "position": {
+           "x": 0,
+           "y": 0,
+           "z": 0
+          },
+          "prestocked": false,
+          "public_id": "background-light_i6fna5",
+          "rotation": {
+           "x": 0,
+           "y": 0,
+           "z": 0
+          },
+          "scale": {
+           "x": 1,
+           "y": 1,
+           "z": 1
+          },
+          "tags": null,
+          "width": 1359,
+          "zoomable": false
+         }
+        },
+        "streaming-screens": {
+         "summary": "Streaming Screen",
+         "desctiption": "Shares desktop video and optionally audio with others",
+         "value": {
+          "audioRange": 1,
+          "ezPanelContainerId": null,
+          "fromInventory": false,
+          "greenscreen": false,
+          "height": 3,
+          "lastModified": 0,
+          "name": "Streaming Screen",
+          "position": {
+           "x": 0,
+           "y": 0,
+           "z": 0
+          },
+          "positionalAudio": false,
+          "rotation": {
+           "x": 0,
+           "y": 0,
+           "z": 0
+          },
+          "scale": {
+           "x": 1,
+           "y": 1,
+           "z": 1
+          },
+          "trackable": true,
+          "width": 6,
+          "zoneId": null
+         }
+        },
+        "remotebrowsers": {
+         "summary": "Remote Browser",
+         "desctiption": "Creates a virtual web browser in frame that can be interacted with by multiple participants",
+         "value": {
+          "active": 1,
+          "defaultAssetURL": "https://learn.framevr.io",
+          "embedUrl": "https://6981fpxrkseqr5pmr7pxm2sj1.hyperbeam.com/7AObjrhORf-kOogd56o8zg?token=b2Bozr0o5evXu5_C_9elHH29yacWayY4PStnZ9TViSs",
+          "ezPanelContainerId": null,
+          "fromInventory": false,
+          "isKiosk": false,
+          "lastModified": 0,
+          "name": "Remote Browser",
+          "permissionSelection": "admin",
+          "position": {
+           "x": 0,
+           "y": 0,
+           "z": 0
+          },
+          "positionalAudio": true,
+          "rotation": {
+           "x": 0,
+           "y": 0,
+           "z": 0
+          },
+          "scale": {
+           "x": 1,
+           "y": 1,
+           "z": 1
+          },
+          "sessionId": "ec039b8e-b84e-45ff-a43a-881de7aa3cce",
+          "snapToNavMesh": false
+         }
+        },
+        "shapes": {
+         "summary": "Shapes",
+         "desctiption": "AI powered shape creation",
+         "value": {
+          "color": null,
+          "ezPanelContainerId": null,
+          "fromInventory": false,
+          "grabLocked": false,
+          "lastModified": 0,
+          "name": "rounded box",
+          "position": {
+           "x": 0,
+           "y": 0,
+           "z": 0
+          },
+          "renderEdges": false,
+          "rotation": {
+           "x": 0,
+           "y": 0,
+           "z": 0
+          },
+          "scale": {
+           "x": 1,
+           "y": 1,
+           "z": 1
+          },
+          "shapeType": "rounded box"
+         }
+        },
+        "whiteboards": {
+         "summary": "Whiteboard",
+         "description": "Draw and creat with others on a drawing board",
+         "value": {
+          "ezPanelContainerId": null,
+          "fromInventory": false,
+          "isTransparent": false,
+          "lastModified": 0,
+          "name": "Whiteboard",
+          "position": {
+           "x": 0,
+           "y": 0,
+           "z": 0
+          },
+          "rotation": {
+           "x": 0,
+           "y": 0,
+           "z": 0
+          },
+          "scale": {
+           "x": 1,
+           "y": 1,
+           "z": 1
+          }
+         }
+        },
+        "audios": {
+         "summary": "Audio File",
+         "desctiption": "Static non-streamed audio file",
+         "value": {
+          "audioRange": 1,
+          "audioURL": "https://firebasestorage.googleapis.com/v0/b/frame-vr-dev.appspot.com/o/kaCEXmKE%2Ffile_example_MP3_1MG.mp3?alt=media&token=d4432d5b-fe16-4202-8d4a-a9fcd0f2922f",
+          "autoplay": false,
+          "ezPanelContainerId": null,
+          "frameSync": {
+           "pausedAt": 0,
+           "timestamp": 0
+          },
+          "fromInventory": false,
+          "lastModified": 0,
+          "loop": true,
+          "name": "file_example_MP3_1MG.mp3",
+          "position": {
+           "x": 0,
+           "y": 0,
+           "z": 0
+          },
+          "positionalAudio": true,
+          "rotation": {
+           "x": 0,
+           "y": 0,
+           "z": 0
+          },
+          "scale": {
+           "x": 1,
+           "y": 1,
+           "z": 1
+          },
+          "tags": []
+         }
+        },
+        "pdfs": {
+         "summary": "PDF Document",
+         "desctiption": "Sharing documents",
+         "value": {
+          "LOD": {
+           "active": false,
+           "nullDistance": 20,
+           "strategy": "SIMPLE_NULL",
+           "activePage": 1
+          },
+          "downloadable": false,
+          "ezPanelContainerId": null,
+          "fromInventory": false,
+          "grabLocked": false,
+          "height": 1.4134453781512606,
+          "lastModified": 0,
+          "magnifyingGlass": false,
+          "name": "Reolink Firmware Upgrade Guide-cameras",
+          "pages": 4,
+          "pdfURL": "https://res.cloudinary.com/edorblewebvr/image/upload/v1712509579/Reolink_Firmware_Upgrade_Guide-cameras_pcjtlc.pdf",
+          "position": {
+           "x": 0,
+           "y": 0,
+           "z": 0
+          },
+          "prestocked": false,
+          "public_id": "Reolink_Firmware_Upgrade_Guide-cameras_pcjtlc",
+          "rotation": {
+           "x": 0,
+           "y": 0,
+           "z": 0
+          },
+          "scale": {
+           "x": 1,
+           "y": 1,
+           "z": 1
+          },
+          "tags": [],
+          "transparent": false,
+          "width": 595,
+          "zoomable": true
+         }
+        },
+        "news": {
+         "summary": "News Feed",
+         "desctiption": "Customized to your news feeds",
+         "value": {
+          "unknown": "not known..."
+         }
+        },
+        "spheres": {
+         "summary": "Photosphere Background",
+         "desctiption": "Set a background image for a frame",
+         "value": {
+          "cubeMapInfo": {
+           "nx": {
+            "public_id": "streetview-XSGASbVb",
+            "secure_url": "https://res.cloudinary.com/edorblewebvr/image/upload/v1712509644/streetview-XSGASbVb.jpg"
+           },
+           "ny": {
+            "public_id": "streetview-QfQMnaFJ",
+            "secure_url": "https://res.cloudinary.com/edorblewebvr/image/upload/v1712509644/streetview-QfQMnaFJ.jpg"
+           },
+           "nz": {
+            "public_id": "streetview-UDpGwKfp",
+            "secure_url": "https://res.cloudinary.com/edorblewebvr/image/upload/v1712509644/streetview-UDpGwKfp.jpg"
+           },
+           "px": {
+            "public_id": "streetview-oDcDbQjC",
+            "secure_url": "https://res.cloudinary.com/edorblewebvr/image/upload/v1712509645/streetview-oDcDbQjC.jpg"
+           },
+           "py": {
+            "public_id": "streetview-QMNKGnKV",
+            "secure_url": "https://res.cloudinary.com/edorblewebvr/image/upload/v1712509644/streetview-QMNKGnKV.jpg"
+           },
+           "pz": {
+            "public_id": "streetview-lvXmAhdr",
+            "secure_url": "https://res.cloudinary.com/edorblewebvr/image/upload/v1712509644/streetview-lvXmAhdr.jpg"
+           }
+          },
+          "ezPanelContainerId": null,
+          "fromInventory": false,
+          "id": "TSFSSEmQ",
+          "imageType": "cubemap",
+          "lastModified": 0,
+          "location": {
+           "latitude": 32.2539787,
+           "longitude": -110.9741769
+          },
+          "name": "streetview-VDulfkjC",
+          "origin": "googleStreetView",
+          "position": {
+           "x": 0,
+           "y": 0,
+           "z": 0
+          },
+          "prestocked": false,
+          "rotation": {
+           "x": 0,
+           "y": 0,
+           "z": 0
+          },
+          "scale": {
+           "x": 1,
+           "y": 1,
+           "z": 1
+          },
+          "sphereURL": "https://res.cloudinary.com/edorblewebvr/image/upload/v1712509644/streetview-lvXmAhdr.jpg",
+          "tags": []
+         }
+        },
+        "videos": {
+         "summary": "Video File",
+         "desctiption": "Static non-streamed video file",
+         "value": {
+          "audioRange": 1,
+          "autoplay": true,
+          "ezPanelContainerId": null,
+          "frameSync": {
+           "playFrom": 0,
+           "timestamp": 1712507114800
+          },
+          "fromInventory": false,
+          "greenscreen": false,
+          "height": 0.5625,
+          "imageURL": "https://res.cloudinary.com/edorblewebvr/video/upload/o_30/l_text:Poppins_100_bold:This%20Video%20Is%20Processing,fl_relative,w_0.85,h_0.2/v1712507070/iBBeSqOOESWir9HSHuc4Mbws3uW2/unittest/videos/r3rc3rxax87o4jyjoegg.jpg",
+          "isStreamable": true,
+          "lastModified": 0,
+          "loaded": true,
+          "loop": true,
+          "name": "file_example_MP4_640_3MG",
+          "originalImageURL": "https://res.cloudinary.com/edorblewebvr/video/upload/v1712507070/iBBeSqOOESWir9HSHuc4Mbws3uW2/unittest/videos/r3rc3rxax87o4jyjoegg.jpg",
+          "position": {
+           "x": 0,
+           "y": 0,
+           "z": 0
+          },
+          "positionalAudio": true,
+          "prestocked": false,
+          "public_id": "iBBeSqOOESWir9HSHuc4Mbws3uW2/unittest/videos/r3rc3rxax87o4jyjoegg",
+          "rotation": {
+           "x": 0,
+           "y": 0,
+           "z": 0
+          },
+          "scale": {
+           "x": 1,
+           "y": 1,
+           "z": 1
+          },
+          "size": 3114374,
+          "status": "playing",
+          "tags": null,
+          "videoHLSURL": "https://res.cloudinary.com/edorblewebvr/video/upload/f_m3u8/sp_hd_lean/v1712507070/iBBeSqOOESWir9HSHuc4Mbws3uW2/unittest/videos/r3rc3rxax87o4jyjoegg.m3u8",
+          "videoMPDURL": "https://res.cloudinary.com/edorblewebvr/video/upload/f_mpd/sp_hd_lean/v1712507070/iBBeSqOOESWir9HSHuc4Mbws3uW2/unittest/videos/r3rc3rxax87o4jyjoegg.mpd",
+          "videoURL": "https://res.cloudinary.com/edorblewebvr/video/upload/v1712507070/iBBeSqOOESWir9HSHuc4Mbws3uW2/unittest/videos/r3rc3rxax87o4jyjoegg.mp4",
+          "width": 640,
+          "zoomable": false
+         }
+        },
+        "spawn-spots": {
+         "summary": "Spwan Spot",
+         "desctiption": "Pick how and where users spawn in a frame",
+         "value": {
+          "defaultSpot": false,
+          "ezPanelContainerId": null,
+          "fromInventory": false,
+          "isSeat": true,
+          "lastModified": 0,
+          "name": "seat",
+          "position": {
+           "x": 0,
+           "y": 0,
+           "z": 0
+          },
+          "radius": 2,
+          "rotation": {
+           "x": 0,
+           "y": 0,
+           "z": 0
+          },
+          "scale": {
+           "x": 1,
+           "y": 1,
+           "z": 1
+          },
+          "spawnInCircle": false,
+          "tags": []
+         }
+        },
+        "voice-zones": {
+         "summary": "Voice Zone",
+         "desctiption": "Users not in the same voice zone can not hear each other",
+         "value": {
+          "altitude": 1,
+          "fromInventory": false,
+          "lastModified": 0,
+          "name": "zone-wriXVBHz",
+          "position": {
+           "x": 0,
+           "y": 0,
+           "z": 0
+          },
+          "radius": 2,
+          "rotation": {
+           "x": 0,
+           "y": 0,
+           "z": 0
+          },
+          "scale": {
+           "x": 8,
+           "y": 8,
+           "z": 8
+          },
+          "sceneId": "Empty"
+         }
+        },
+        "particles": {
+         "summary": "Particle Effects",
+         "desctiption": "Launch all kinds of sprites around the frame",
+         "value": {
+          "autoCleanUp": false,
+          "disableZoneCheck": false,
+          "ezPanelContainerId": null,
+          "fromInventory": false,
+          "lastModified": "April 8, 2024 at 2:40:29 PM UTC",
+          "name": "Simple Fire",
+          "position": {
+           "x": 0,
+           "y": 0,
+           "z": 0
+          },
+          "rotation": {
+           "x": 0,
+           "y": 0,
+           "z": 0
+          },
+          "scale": {
+           "x": 1,
+           "y": 1,
+           "z": 1
+          },
+          "showSnippetTool": true,
+          "snippetTag": "KI72TR"
+         }
+        },
+        "shaders": {
+         "summary": "Custom Shader",
+         "desctiption": "Customized shaders for custom visual effects",
+         "value": {
+          "ezPanelContainerId": null,
+          "fromInventory": false,
+          "lastModified": "April 8, 2024 at 8:19:07 PM UTC",
+          "name": "Vortex Logo",
+          "position": {
+           "x": 0,
+           "y": 0,
+           "z": 0
+          },
+          "rotation": {
+           "x": 0,
+           "y": 0,
+           "z": 0
+          },
+          "scale": {
+           "x": 1,
+           "y": 1,
+           "z": 1
+          },
+          "shape": "plane",
+          "showSnippetTool": true,
+          "snippetTag": "#0457VF#1"
+         }
+        },
+        "polls": {
+         "summary": "Opinion Poll",
+         "desctiption": "Interactive and optionally anonymous intake of opinion data",
+         "value": {
+          "anonymous": true,
+          "choices": [
+           {
+            "color": null,
+            "id": "yWNwVAru",
+            "label": "Alpha",
+            "number": 0
+           },
+           {
+            "color": null,
+            "id": "mxRBqteh",
+            "label": "Beta",
+            "number": 0
+           },
+           {
+            "color": null,
+            "id": "hPYFLPpH",
+            "label": "Gamme",
+            "number": 0
+           }
+          ],
+          "ezPanelContainerId": null,
+          "fromInventory": false,
+          "isOpen": true,
+          "lastModified": 0,
+          "name": "Poll: LOL",
+          "position": {
+           "x": 0,
+           "y": 0,
+           "z": 0
+          },
+          "question": "LOL",
+          "rotation": {
+           "x": 0,
+           "y": 0,
+           "z": 0
+          },
+          "scale": {
+           "x": 1,
+           "y": 1,
+           "z": 1
+          },
+          "userResponses": null
+         }
+        }
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Success"
+     },
+     "400": {
+      "description": "Failure due to invalid data format."
+     },
+     "401": {
+      "description": "Failure due to insufficient permission found in the API key."
+     },
+     "500": {
+      "description": "Failure due to unexpected reasons."
+     }
+    },
+    "security": [
+     {
+      "automateAuth": []
+     }
+    ]
+   },
+   "delete": {
+    "tags": [
+     "Assets in Frame"
+    ],
+    "summary": "Delete Asset from frame environment",
+    "description": "Delete an asset from the target frame.",
+    "operationId": "deleteAssetInFrame",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "frameRef",
+      "required": true,
+      "schema": {
+       "type": "string"
+      },
+      "description": "The name of the Frame from which the asset will be deleted."
+     },
+     {
+      "in": "path",
+      "name": "assetType",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "enum": [
+        "texts",
+        "text-areas",
+        "models",
+        "images"
+       ]
+      },
+      "description": "The type of the asset you want to create. Available options are \\\"texts\\\", \\\"text-areas\\\", \\\"models\\\", and \\\"images\\\"",
+      "example": "images"
+     },
+     {
+      "in": "path",
+      "name": "assetId",
+      "required": true,
+      "schema": {
+       "type": "string"
+      },
+      "description": "The ID of the asset you want to delete."
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Asset has been deleted"
+     }
+    },
+    "security": [
+     {
+      "automateAuth": []
+     }
+    ]
+   }
+  },
+  "/automate/v1/scene/{frameRef}": {
+   "get": {
+    "tags": [
+     "Frame Scene"
+    ],
+    "summary": "Read Active Scene",
+    "description": "Read the active scene of the target frame. The request must provide an API Key matching owner level permission to the frame.",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "frameRef",
+      "required": true,
+      "schema": {
+       "type": "string"
+      },
+      "description": "The name of the Frame you want the settings for."
+     }
+    ],
+    "operationId": "readActiveSceneOfFrame",
+    "responses": {
+     "200": {
+      "description": "Returns the active scene of the target frame"
+     }
+    },
+    "security": [
+     {
+      "automateAuth": []
+     }
+    ]
+   }
+  },
+  "/automate/v1/scene/{frameRef}/{scene}": {
+   "put": {
+    "tags": [
+     "Frame Scene"
+    ],
+    "summary": "Write Active Scene",
+    "description": "Change the active scene of the target frame. The request must provide an API Key matching owner level permission to the frame.",
+    "operationId": "writeActiveSceneOfFrame",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "frameRef",
+      "required": true,
+      "schema": {
+       "type": "string"
+      },
+      "description": "The name of the Frame you want to change the settings for."
+     },
+     {
+      "in": "path",
+      "name": "scene",
+      "required": true,
+      "schema": {
+       "type": "string"
+      },
+      "description": "Scene number, 1 or higher",
+      "example": "1"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "The Frame's Active Scene was updated"
+     }
+    },
+    "security": [
+     {
+      "automateAuth": []
+     }
+    ]
+   }
+  }
+ }
+}

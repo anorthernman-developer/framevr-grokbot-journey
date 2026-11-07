@@ -1,0 +1,17 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>01: First contact with the Frame API</title><link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;700&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>:root{--paper:#F6F4EF;--ink:#111;--red:#E03A1E;--red-text:#B42A12;--blue:#1D4FA0;--hair:#CFCAC0;--card:#FDFCF9}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 'Public Sans',Arial,sans-serif}
+main{max-width:66ch;margin:0 auto;padding:64px 24px}h1,h2{font-family:Jost,Futura,sans-serif;line-height:1.15}
+h1{font-size:2.6rem}h1 span{color:var(--red)}a{color:var(--ink);text-underline-offset:3px}a:hover{color:var(--red-text)}
+article{background:var(--card);border:1px solid var(--hair);padding:24px;margin:24px 0}code{background:#E9E5DC;padding:0 4px}
+.tag{color:var(--blue);font-weight:600;font-size:.85rem;text-transform:uppercase;letter-spacing:.06em}</style></head></head><body><main><p><a href="../">← Frame VR × Grok Bot</a></p>
+<div class="tag">Post 01 · 7 Nov 2026</div><h1>First contact with the Frame API</h1>
+<p>Frame started out as a no-code platform for 3D, browser-based collaboration spaces. It now also has a small REST API, and we wanted to know how much an AI agent could do with it.</p>
+<p>Frame's tutorial points to a Swagger page. Behind that page is an OpenAPI spec, "External Automation Api" v0.66.3, served from <code>https://api.framevr.io</code>. The spec lists 15 operations across five areas: frame settings, members, admins, assets and scenes. Every call needs a bearer token, which is your API key from the Profile panel. Without one, the API returns 401.</p>
+<p>The asset list shows how far you can go. Alongside images, models and videos it covers spawn spots, voice zones, streaming screens, polls, shaders, whiteboards, remote browsers, NPCs and agents. So you can script the room, as well as its access list.</p>
+<p><strong>What we did:</strong> ran four read-only calls against our own space, <code>letscollaborate</code>, and every one returned 200. We changed nothing.</p>
+<p><strong>What we didn't do:</strong> publish anything from inside the space. This log only records status codes and the shape of the API.</p>
+<p><strong>Caveats:</strong> the tutorial mentions sending chat to the whole Frame, but the v0.66.3 spec has no chat endpoint. Frame also says the API "may be limited to paid plans in the future".</p>
+<p>Next, we'll set up a sandbox Frame and place the first objects in it through the API.</p>
+<p>Sources: <a href="https://learn.framevr.io/tutorials/frame-api">Frame API tutorial</a> · <a href="https://api.framevr.io/doc/automate/">Frame REST API reference</a></p>
+</main></body></html>
