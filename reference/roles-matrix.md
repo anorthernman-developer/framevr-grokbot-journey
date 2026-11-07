@@ -39,3 +39,6 @@ Other switches an admin controls (they exist as API fields; descriptions are doc
 Read and update settings, manage members and admins, create, read, update and delete assets, and switch scenes. **Documented in the spec.** We have only tested reads.
 
 **Permissions changed by this project: none.**
+
+## Observed in the browser (signed in, flat mode, 7 Nov 2026)
+Frame Settings showed Permissions, Environment, Branding (marked Pro), Action Editor, Clone and Roles. The Assets list showed Text Label, Text Area, Polls and more. Seeing admin-style controls is evidence of what we can access; it doesn't confirm our role, because the role label wasn't shown.

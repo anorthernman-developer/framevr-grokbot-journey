@@ -13,3 +13,4 @@ The API key went into the agent through a secure input as an environment variabl
 | 2026-11-07 | Re-read the create-asset spec | `POST` takes no body; the type schema has to come from an asset made in the UI. We postponed creating the welcome display rather than guess. |
 | 2026-11-07 | Read Frame docs: Frame Home, Users & Permissions, AI Agents, v0.59 notes | Built the role matrix |
 | 2026-11-07 | Joined as a guest from the agent's cloud browser; ran box diagnostics | 3D failed. No GPU and software WebGL; Chrome log: `fail_if_major_perf_caveat + software gl`; Frame fell back to 2D. Nothing created, nothing changed. |
+| 2026-11-07 | Signed-in browser (flat mode) gave asset IDs; read-only `GET` on text-areas assets (values kept private) | Got the Text Area schema (see welcome plan). It has no `link` field. Position still unconfirmed, so nothing created. Added `examples/asset-shape.sh`. |
